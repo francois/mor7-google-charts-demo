@@ -1,0 +1,9 @@
+= Montreal on Rails 7:  Google Charts Demo
+
+Google Charts API documentation is available at:
+  http://code.google.com/apis/chart/
+
+The demo code can be had using Git using:
+  git clone git@github.com:francois/mor7-google-charts-demo
+
+The code in this application is available under the public domain.
