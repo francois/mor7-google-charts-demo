@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title><%=h @title %></title>
+    <%= stylesheet_link_tag "application" %>
+  </head>
+  <body>
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <col width="50%"><col width="50%">
+      <tr>
+        <td align="left">
+          <%= link_to("Previous", @prev) if @prev %>
+        </td>
+        <td align="right">
+          <%= link_to("Next", @next) if @next %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <%= yield %>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
