@@ -79,3 +79,5 @@ div.chart { text-align: center }
 div.chart img { padding: 1px; border: 1px solid silver; display: inline; }
 pre { font-size: 18pt; line-height: 1.1; text-align: left; margin: 1em 6em; }
 dl { font-size: 24pt; line-height: 1.1; }
+dt { font-weight: bold; margin-top: 2em; }
+dd { font-size: 20pt; }
