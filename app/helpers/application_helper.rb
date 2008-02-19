@@ -24,7 +24,12 @@ module ApplicationHelper
   def gchart_params(data, options={})
     options.reverse_merge!(:encoding => :simple, :size => "200x80")
     returning(Hash.new) do |params|
-      params[:cht] = "lc"
+      params[:cht] = case options[:type]
+                     when :pie;     "p"
+                     when :pie3d;   "p3"
+                     when :line;    "lc"
+                     else;          "lc"
+                     end
       params[:chs] = options[:size]
       params[:chd] = send("gchart_#{options[:encoding]}_encoding", data, options[:max_value])
     end
