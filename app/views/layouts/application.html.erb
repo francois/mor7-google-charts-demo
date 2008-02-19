@@ -1,7 +1,7 @@
 <html>
   <head>
     <title><%=h @title %></title>
-    <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "scaffold" %>
   </head>
   <body>
     <table width="100%" cellspacing="0" cellpadding="0">
@@ -15,7 +15,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="2">
+        <td style="padding-top: 2em" colspan="2">
           <%= yield %>
         </td>
       </tr>
