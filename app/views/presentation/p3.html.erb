@@ -1,0 +1,7 @@
+<%= page_title "Simple Pie Chart" %>
+
+<div class="chart">
+  <% args = [[30, 20, 10, 45], {:type => :pie, :max_value => 100}] %>
+  <%= gchart *args %>
+  <%= gchart_debug *args %>
+</div>
