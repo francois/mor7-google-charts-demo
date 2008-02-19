@@ -1,1 +1,7 @@
-<%= page_title "Try from your browser" %>
+<%= page_title "Examples" %>
+
+<div class="chart">
+  <% args = [[15, 10, 25, 30, 10, 45, 50, 60], {:max_value => 60}] %>
+  <%= gchart *args %>
+  <%= gchart_debug *args %>
+</div>
