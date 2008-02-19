@@ -30,8 +30,18 @@ module ApplicationHelper
                      when :line;    "lc"
                      else;          "lc"
                      end
+      gchart_legend(params, options)
       params[:chs] = options[:size]
       params[:chd] = send("gchart_#{options[:encoding]}_encoding", data, options[:max_value])
+    end
+  end
+
+  def gchart_legend(params, options)
+    case options[:type]
+    when :pie, :pie3d
+      params[:chl] = options[:legend].join("|") if options.has_key?(:legend)
+    else
+      params[:chdl] = options[:legend].join(",") if options.has_key?(:legend)
     end
   end
 

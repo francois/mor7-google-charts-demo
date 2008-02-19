@@ -1,0 +1,7 @@
+<%= page_title "3D Pie Chart with Legend" %>
+
+<div class="chart">
+  <% args = [[30, 40, 10, 45], {:type => :pie3d, :legend => %w(dice.com joelonsoftware.com monster.com standoutjobs.com), :max_value => 100, :size => "600x200"}] %>
+  <%= gchart *args %>
+  <%= gchart_debug *args %>
+</div>
