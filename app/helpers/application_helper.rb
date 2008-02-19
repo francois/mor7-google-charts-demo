@@ -53,10 +53,17 @@ module ApplicationHelper
   SIMPLE_ENCODING = [("A".."Z"), ("a".."z"), ("0".."9")].map(&:to_a).flatten
   SIMPLE_ENCODING_LENGTH = SIMPLE_ENCODING.length.to_f
   def gchart_simple_encoding(data, max_value=data.reject(&:blank?).max)
+    mapper = lambda {|value|
+      value.blank? ? "_" : gchart_encode(value, max_value, SIMPLE_ENCODING)
+    }
+
     returning("s:") do |buf|
-      buf << data.map {|value|
-        value.blank? ? "_" : gchart_encode(value, max_value, SIMPLE_ENCODING)
-      }.join
+      encoded = if data.first.kind_of?(Array) then
+                  data.map {|series| series.map(&mapper).join}.join(",")
+                else
+                  data.map(&mapper).join
+                end
+      buf << encoded
     end
   end
 
