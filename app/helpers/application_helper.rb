@@ -25,12 +25,17 @@ module ApplicationHelper
     options.reverse_merge!(:encoding => :simple, :size => "200x80")
     returning(Hash.new) do |params|
       params[:cht] = case options[:type]
-                     when :pie;     "p"
-                     when :pie3d;   "p3"
-                     when :line;    "lc"
-                     else;          "lc"
+                     when :pie;         "p"
+                     when :pie3d;       "p3"
+                     when :hbar_stack;  "bhs"
+                     when :vbar_stack;  "bvs"
+                     when :hbar;        "bhg"
+                     when :vbar;        "bvg"
+                     when :line;        "lc"
+                     else;              "lc"
                      end
       gchart_legend(params, options)
+      params[:chtt] = options[:title].gsub("\n", "|") if options.has_key?(:title)
       params[:chs] = options[:size]
       params[:chd] = send("gchart_#{options[:encoding]}_encoding", data, options[:max_value])
     end

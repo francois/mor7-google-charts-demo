@@ -1,0 +1,14 @@
+<%= page_title "Bar Chart with Title" %>
+
+<div class="chart">
+  <% args = [[30, 40, 10, 45], {:type => :hbar, :max_value => 100, :size => "200x140", :title => "Relative Group Sizes"}] %>
+  <%= gchart *args %>
+  <%= gchart_debug *args %>
+</div>
+
+<div class="chart">
+  <% args = [[30, 40, 10, 45], {:type => :vbar, :max_value => 100, :size => "200x200", :title => "Relative Group Sizes"}] %>
+  <%= gchart *args %>
+  <%= gchart_debug *args %>
+</div>
+
